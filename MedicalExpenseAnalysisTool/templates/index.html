@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <h1>Medical Expense Prediction</h1>
+    <form action="/predict" method="POST">
+
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+
+      <label for="age">Age:</label><br>
+      <input type="number" id="age" name="age" required><br>
+
+      <label for="gender">Gender:</label><br>
+      <input type="radio" id="male" name="gender" value="Male" required>
+      <label for="male">Male</label><br>
+      <input type="radio" id="female" name="gender" value="Female" required>
+      <label for="female">Female</label><br>
+      <input type="radio" id="other" name="gender" value="Other">
+      <label for="other">Other</label><br>
+
+      <label for="blood_type">Blood Type:</label><br>
+      <select id="blood_type" name="blood_type" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="AB">AB</option>
+        <option value="O">O</option>
+      </select><br>
+
+      <label for="medical_condition">Medical Condition:</label><br>
+      <select id="medical_condition" name="medical_condition" required>
+        <option value="Heart Disease">Heart Disease</option>
+        <option value="Diabetes">Diabetes</option>
+        <option value="Cancer">Cancer</option>
+        <option value="Hypertension">Hypertension</option>
+        <option value="Asthma">Asthma</option>
+        <option value="COVID-19">COVID-19</option>
+        <option value="Kidney Disease">Kidney Disease</option>
+        <option value="Liver Disease">Liver Disease</option>
+        <option value="Stroke">Stroke</option>
+      </select><br>
+
+      <label for="doctor">Doctor:</label><br>
+      <input type="text" id="doctor" name="doctor" required><br>
+
+      <label for="hospital">Hospital:</label><br>
+      <input type="text" id="hospital" name="hospital" required><br>
+
+      <label for="insurance_provider">Insurance Provider:</label><br>
+      <select id="insurance_provider" name="insurance_provider" required>
+        <option value="Provider A">Provider A</option>
+        <option value="Provider B">Provider B</option>
+        <option value="Provider C">Provider C</option>
+        <option value="Provider D">Provider D</option>
+      </select><br>
+
+      <label for="room_number">Room Number:</label><br>
+      <input type="number" id="room_number" name="room_number"><br>
+
+      <label for="admission_type">Admission Type:</label><br>
+      <input type="text" id="admission_type" name="admission_type" required><br>
+
+      <label for="discharge_date">Discharge Date:</label><br>
+      <input type="date" id="discharge_date" name="discharge_date" required><br>
+
+      <label for="medication">Medication:</label><br>
+      <input type="text" id="medication" name="medication"><br>
+
+      <label for="test_results">Test Results:</label><br>
+      <input type="text" id="test_results" name="test_results"><br>
+
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
+``
+

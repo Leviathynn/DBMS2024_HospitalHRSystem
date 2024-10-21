@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <h1>Prediction History</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Blood Type</th>
+        <th>Medical Condition</th>
+        <th>Hospital</th>
+        <th>Insurance Provider</th>
+        <th>Predicted Cost</th>
+      </tr>
+      {% for record in records %}
+      <tr>
+        <td>{{ record[1] }}</td>
+        <td>{{ record[2] }}</td>
+        <td>{{ record[3] }}</td>
+        <td>{{ record[4] }}</td>
+        <td>{{ record[5] }}</td>
+        <td>{{ record[7] }}</td>
+        <td>{{ record[8] }}</td>
+        <td>{{ record[9] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
