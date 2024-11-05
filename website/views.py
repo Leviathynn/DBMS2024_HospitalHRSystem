@@ -11,7 +11,12 @@ def calc():
     if request.method == 'POST' :
         ageInput = request.form.get('age')
         sexInput = request.form.get('sex')
-        print(ageInput, sexInput)
+        bloodType = request.form.get('bloodType')
+        insurance = request.form.get('insurance')
+        adType = request.form.get('adtype')
+        medication = request.form.get('medication')
+        print(ageInput, sexInput, bloodType, insurance, adType, medication)
+        
     return render_template("calc.html")
 
 @views.route("/references/")
