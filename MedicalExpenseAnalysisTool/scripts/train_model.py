@@ -13,9 +13,11 @@ conn = mysql.connector.connect(
 )
 
 # 从数据库中读取数据
-query = "SELECT Age, Gender, Medical_Condition, Insurance_Provider, Billing_Amount FROM HOSPITAL_RECORDS"
-df = pd.read_sql(query, conn)
-
+try:
+    query = "SELECT Age, Gender, Medical_Condition, Insurance_Provider, Billing_Amount FROM HOSPITAL_RECORDS"
+    df = pd.read_sql(query, conn)
+except Exception as ex:
+    print(ex)
 # 将分类特征进行One-hot编码
 df = pd.get_dummies(df, columns=['Gender', 'Medical_Condition', 'Insurance_Provider'], drop_first=True)
 
