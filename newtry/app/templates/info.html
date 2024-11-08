@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{%block text%}
+    <br/>
+    <h1>
+        Information on how to use this website
+    </h1>
+    <body>
+        <p>This site uses publically available medical
+        information and user inserted information to
+        calculate the cost of various medical expenses
+        and insurance covereages based on multiple factors.
+        </p>
+        <p>The site is still in it's alpha version. This site
+            should also not be an only source of information,
+            and it is recommended to speak to a professional
+            regarding possibly life altering decisions.
+        </p>
+        <p>This site is split into 3 sections.
+            <dl>
+                <dt>Information</dt>
+                <dd>- Info page has a summary of the application and it's usage.</dd>
+                <dt>Calculations</dt>
+                <dd>- Takes in the users information and circumstances, then generates 
+                    an estimate of the cost of the procredure with an explanation of
+                    the cost breakdown</dd>
+                <dt>References</dt>
+                <dd>- Reference page of the sources and data used in this application.</dd>
+              </dl> 
+        </p>
+    </body>
+{% endblock %}
