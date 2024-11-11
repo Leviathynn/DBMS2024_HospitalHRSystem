@@ -2,13 +2,20 @@ from flask import Blueprint, render_template, request
 import xgboost as xgb
 import numpy as np
 import os
+from .models import historyItem
+from . import db
 
 views = Blueprint('views', __name__)
 
 # 加载模型
 model = xgb.XGBRegressor()
 current_dir = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(current_dir, 'C:/Users/41728\PycharmProjects/newtry/models/medical_cost_model.json')
+print(current_dir)
+temp_dir = str(current_dir)
+temp_dir = temp_dir[:-3]
+temp_dir = temp_dir + "models\\medical_cost_model.json"
+#model_path = os.path.join(current_dir, r'C:\Users\Levy\Documents\CSCI 5560 - Databases pt2\DBMS2024_MedicalSystem-1\newtry\models\medical_cost_model.json')
+model_path = os.path.join(current_dir, temp_dir)
 model.load_model(model_path)
 
 # 定义辅助函数来处理输入并进行预测
@@ -44,6 +51,7 @@ def info():
 @views.route("/calculations/", methods=['GET', 'POST'])
 def calc():
     predicted_cost = None
+    lastFive = None
     if request.method == 'POST':
         age = int(request.form.get('age'))
         gender = request.form.get('gender')
@@ -52,8 +60,17 @@ def calc():
 
         # 调用预测函数
         predicted_cost = predict_medical_cost(age, gender, medical_conditions, insurance_provider)
-
-    return render_template("calc.html", predicted_cost=predicted_cost)
+        
+        
+        itemToBeLogged = historyItem(age = str(age), gender = str(gender), medicalCondition = str(medical_conditions[0]),
+                                     insuranceProvider = str(insurance_provider), estimatedCost = str(predicted_cost))
+        db.session.add(itemToBeLogged)
+        db.session.commit()
+        #historyItem.query.all()
+        #print(historyItem.query.all(), sep = '\n')
+        lastFive = historyItem.query.order_by(historyItem.number.desc()).limit(5).all()
+        
+    return render_template("calc.html", predicted_cost=predicted_cost, historyItem = lastFive)
 
 @views.route("/references/")
 def ref():

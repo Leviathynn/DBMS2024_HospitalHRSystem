@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block text %}
+    <p style="text-indent: 15px;"> </p>
     <form method="POST">
         <h3>Medical Expense Calculator</h3>
 
@@ -11,7 +12,7 @@
 
         <div class="form-group">
             <label for="gender">Gender</label>
-            <select class="form-control" id="gender" name="gender" required>
+            <select class="form-control" id="gender" name="gender" size = "2" required>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
@@ -19,7 +20,7 @@
 
         <div class="form-group">
             <label for="medical_condition">Medical Condition</label>
-            <select class="form-control" id="medical_condition" name="medical_condition" multiple required>
+            <select class="form-control" id="medical_condition" name="medical_condition" size = "5" required>
                 <option value="asthma">Asthma</option>
                 <option value="cancer">Cancer</option>
                 <option value="diabetes">Diabetes</option>
@@ -30,7 +31,7 @@
 
         <div class="form-group">
             <label for="insurance">Insurance Provider</label>
-            <select class="form-control" id="insurance" name="insurance" required>
+            <select class="form-control" id="insurance" name="insurance" size = "4" required>
                 <option value="Blue Cross">Blue Cross</option>
                 <option value="Cigna">Cigna</option>
                 <option value="Medicare">Medicare</option>
@@ -42,6 +43,47 @@
     </form>
 
     {% if predicted_cost is not none %}
-        <h3>Predicted Medical Cost: ${{ predicted_cost | round(2) }}</h3>
+        </br>
+
+        <div class="card">
+        <div class="p-3 mb-2 bg-dark text-light">
+
+            <div class="card-body">
+
+          
+              <h5 class="card-title">Predicted Medical Cost:</h5>
+          
+              <p class="card-text">{{ predicted_cost | round(2) }}</p>
+          
+            </div>
+          
+        </div>
+        </div>
+    {% endif %}
+
+
+    {% if historyItem is not none %}
+        <div class="card">
+            <div class="p-3 mb-2 bg-light text-dark">
+    
+                <div class="card-body">
+    
+              
+                  <p class="card-title">History:</p>
+
+                  {% for item in historyItem %}
+                    <div class="card-text">
+                        <p>{{item}}</p>
+                    </div>
+                  {% endfor %}</p>
+
+              
+                </div>
+              
+            </div>
+            </div>
+    
+
+
     {% endif %}
 {% endblock %}
