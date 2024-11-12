@@ -4,7 +4,7 @@ For Database class in Fall 2024. Concept is that of a Medical Insurance Calculat
 The Medical Insurance Analysis System is an application that takes in publicly available information and formats it into a database. It then trains this data to be able to calculate an user's estimated medical cost based on multiple factors.
 
 
-##Installation Details:
+## Installation Details:
 
 The following python libraries will need to be installed:
 flask
@@ -14,7 +14,7 @@ sqlalchemy
 scikit-learn (contains sklearn)
 
 
-##Runnning Details:
+## Runnning Details:
 
 To run, run run.py in the newtry folder
 Then connect to the webserver that is made. By default it is localhost:5000 and can be connected to by entering the line into a web brower's navigation bar.
