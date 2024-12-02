@@ -6,6 +6,10 @@ The Medical Insurance Analysis System is an application that takes in publicly a
 
 ## Installation Details:
 
+To update, the dataset a mysql server will have to installed and configured.
+
+To run, python 3.13 will be needed.
+
 The following python libraries will need to be installed:
 ```
 flask
@@ -14,7 +18,6 @@ pandas
 sqlalchemy
 scikit-learn (contains sklearn)
 ```
-
 
 ## Runnning Details:
 
